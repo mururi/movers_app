@@ -21,3 +21,7 @@ class User(models.Model):
     def get_user(cls):
         user=User.objects.all()
         return user
+
+    def delete_user(self):
+        self.delete()
+        

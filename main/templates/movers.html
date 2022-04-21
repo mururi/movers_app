@@ -1,9 +1,9 @@
 {% include 'base.html'%}
 {%block content%}
-<section class="section bg-light" id="next">
+<section class="section bg-light" id="next" style="background-image: url(https://images.unsplash.com/photo-1542393545-10f5cde2c810?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fGNvbXB1dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60)">
 
     <div class="container">
-        <h2>Available bookings</h2>
+        <h2 style="text-align:center; color: rgb(248, 181, 57);">Available bookings</h2>
         <div class="card-columns">
             {% for booking in bookings %}
             <div class="card" style="width: 18rem;">

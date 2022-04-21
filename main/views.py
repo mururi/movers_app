@@ -52,3 +52,7 @@ class RegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+
+@login_required(login_url='/accounts/login/')
+def project(request):
+    pass

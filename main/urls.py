@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('make-booking/', views.make_booking, name='make-booking'),
     path('register', RegisterView.as_view()),
+    path('mover', views.mover, name='mover'),
 ]
 
 if settings.DEBUG:

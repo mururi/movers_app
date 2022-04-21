@@ -54,5 +54,7 @@ class RegisterView(APIView):
         return Response(serializer.data)
 
 @login_required(login_url='/accounts/login/')
-def project(request):
-    pass
+def mover(request):
+    bookings=Bookings.objects.all()
+    return render(request, 'movers.html', {'bookings': bookings})
+

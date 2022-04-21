@@ -2,7 +2,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import  Mover, Profile
+from .models import  Mover, Profile, Booking
 
 
 
@@ -18,6 +18,11 @@ class UpdateProfileForm(forms.ModelForm):
         model = Profile
         exclude = ('user', 'move')
 
+class UpdateProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ('user', 'move')
+
 
 
 
@@ -26,3 +31,8 @@ class MoverForm(forms.ModelForm):
     class Meta:
         model = Mover
         exclude = ('user', 'move')
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        exclude = ['user']

@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from cloudinary.models import CloudinaryField
 
 
+
 # Create your models here.
 class User(AbstractUser):
     username = models.CharField(max_length=100)
@@ -13,6 +14,8 @@ class User(AbstractUser):
     email = models.EmailField(max_length=100)
     is_customer = models.BooleanField(default=False)
     is_mover = models.BooleanField(default=False)
+
+    REQUIRED = []
 
     def __str__(self):
         return f'{self.username}User'
@@ -30,8 +33,8 @@ class User(AbstractUser):
 
 class Profile(models.Model):
     id =  models.IntegerField(primary_key=True)
-    user_id= models.ForeignKey()(max_length=80, blank=True)
-    contact= models.IntegerField()(max_length=254, blank=True)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+    contact= models.IntegerField(max_length=254, blank=True)
     profile_picture = CloudinaryField('profile_picture', default='default.png')
 
 
@@ -50,26 +53,7 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()  
 
-class Mover(models.Model):
-     
-    id =  models.IntegerField(primary_key=True)
-    booking_id= models.ForeignKey()(max_length=80, blank=True)
-    price= models.IntegerField()(max_length=254, blank=True)
-    status=models.BooleanField()
 
-
-    @receiver(post_save, sender=User)
-    def create_user_move(sender, instance, created, **kwargs):
-        if created:
-            Mover.objects.create(user=instance)
-
-    @receiver(post_save, sender=User)
-    def save_user_move(sender, instance, **kwargs):
-        instance.move.save()  
-
-   
-    def save_user_move(sender, instance, **kwargs):
-        instance.move.save()  
         
 class Booking(models.Model):
     HOUSE_TYPES = [
@@ -90,3 +74,24 @@ class Booking(models.Model):
 
     def __str__(self):
         return f'{self.user} {self.booking_date}'
+
+class Mover(models.Model):
+     
+    id =  models.IntegerField(primary_key=True)
+    booking_id= models.ForeignKey(Booking, on_delete=models.CASCADE)
+    price= models.IntegerField()(max_length=254, blank=True)
+    status=models.BooleanField()
+
+
+    @receiver(post_save, sender=User)
+    def create_user_move(sender, instance, created, **kwargs):
+        if created:
+            Mover.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_move(sender, instance, **kwargs):
+        instance.move.save()  
+
+   
+    def save_user_move(sender, instance, **kwargs):
+        instance.move.save()  

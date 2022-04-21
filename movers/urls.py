@@ -22,9 +22,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup/', classroom.SignUpView.as_view(), name='signup'),
-    path('accounts/signup/customer/', customers.CustomerSignUpView.as_view(), name='customer'),
-    path('accounts/signup/mover/', movers.MoverSignUpView.as_view(), name='mover'),
+    # path('accounts/signup/', classroom.SignUpView.as_view(), name='signup'),
+    # path('accounts/signup/customer/', customers.CustomerSignUpView.as_view(), name='customer'),
+    # path('accounts/signup/mover/', movers.MoverSignUpView.as_view(), name='mover'),
     path('', include('main.urls')),
     path('api/', include('users.urls'))
 ]

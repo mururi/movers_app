@@ -1,8 +1,8 @@
 
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import UpdateProfileForm
+from .forms import BookingForm, UpdateProfileForm
 from rest_framework.views import APIView
 from main.serializers import UserSerializer
 from rest_framework.response import Response
@@ -30,6 +30,19 @@ def edit_profile(request, username):
 @login_required(login_url='login')
 def index(request):
     return render(request, 'index.html')
+
+def make_booking(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit = False)
+            booking.user = current_user
+            booking.save()
+        return redirect('/')
+    else:
+        form = BookingForm()
+    return render(request, 'booking.html', {"form": form})
 
 # Create a Registration view
 class RegisterView(APIView):

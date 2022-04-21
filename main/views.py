@@ -10,6 +10,10 @@ from rest_framework.response import Response
 def index(request):
     return render(request, 'index.html')
 
+@login_required(login_url='login')
+def profile(request, username):
+    return render(request, 'profile.html')
+
 def profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:

@@ -1,0 +1,20 @@
+{% include 'base.html'%}
+{%block content%}
+<section class="section bg-light" id="next">
+
+    <div class="container">
+        <h2>Available bookings</h2>
+        {% for booking in bookings %}
+        <div class="site-block-half d-flex bg-white" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="image d-block bg-image"></a>
+            <div class="text">
+                <span class="d-block"><span class="display-4 text-primary">₱{{ booking.house }}</span> Unit type </span>
+                <h2>Superior Room</h2>
+                <p class="lead">A superior room is a room in a hotel that is more comfortable or has better amenities
+                    than other rooms. It is ₱5000 for a standard room and ₱10000 for a superior room. Superior rooms
+                    have a beautiful view over the hills. The superior rooms are larger than the standard rooms.</p>
+            </div>
+        </div>
+        {% endfor %}
+</section>
+{% endblock %}

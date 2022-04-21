@@ -6,6 +6,7 @@ from .forms import BookingForm, UpdateProfileForm
 from rest_framework.views import APIView
 from main.serializers import UserSerializer
 from rest_framework.response import Response
+from .models import *
 
 def index(request):
     return render(request, 'index.html')
@@ -53,8 +54,8 @@ class RegisterView(APIView):
         serializer.save()
         return Response(serializer.data)
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def mover(request):
-    bookings=Bookings.objects.all()
+    bookings=Booking.objects.all()
     return render(request, 'movers.html', {'bookings': bookings})
 

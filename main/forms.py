@@ -18,6 +18,11 @@ class UpdateProfileForm(forms.ModelForm):
         model = Profile
         exclude = ('user', 'move')
 
+class UpdateProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ('user', 'move')
+
 
 
 

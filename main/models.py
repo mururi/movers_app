@@ -9,7 +9,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class User(AbstractUser):
-    username = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=255)
     email = models.EmailField(max_length=100)
     is_customer = models.BooleanField(default=False)
@@ -32,10 +32,9 @@ class User(AbstractUser):
         self.delete()
 
 class Profile(models.Model):
-    id =  models.IntegerField(primary_key=True)
-    user= models.ForeignKey(User, on_delete=models.CASCADE)
-    contact= models.IntegerField(max_length=254, blank=True)
-    profile_picture = CloudinaryField('profile_picture', default='default.png')
+    user= models.OneToOneField(User, on_delete=models.CASCADE)
+    contact= models.IntegerField(null=True)
+    profile_picture = CloudinaryField('profile_picture', default='default.png', null=True)
 
 
     def __str__(self):
@@ -63,7 +62,7 @@ class Booking(models.Model):
         ('SD', 'Studio'),
     ]
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     vacation_date = models.DateTimeField()
     booking_date = models.DateTimeField(auto_now=True)
     location = models.CharField(max_length=50)
@@ -78,19 +77,19 @@ class Booking(models.Model):
 class Mover(models.Model):
      
     id =  models.IntegerField(primary_key=True)
-    booking_id= models.ForeignKey(Booking, on_delete=models.CASCADE)
-    price= models.IntegerField()(max_length=254, blank=True)
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='selected_movers')
+    price= models.IntegerField(blank=True)
     status=models.BooleanField()
 
 
-    @receiver(post_save, sender=User)
-    def create_user_move(sender, instance, created, **kwargs):
-        if created:
-            Mover.objects.create(user=instance)
+    # @receiver(post_save, sender=User)
+    # def create_user_move(sender, instance, created, **kwargs):
+    #     if created:
+    #         Mover.objects.create(user=instance)
 
-    @receiver(post_save, sender=User)
-    def save_user_move(sender, instance, **kwargs):
-        instance.move.save()  
+    # @receiver(post_save, sender=User)
+    # def save_user_move(sender, instance, **kwargs):
+    #     instance.move.save()  
 
    
     def save_user_move(sender, instance, **kwargs):

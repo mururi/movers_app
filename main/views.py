@@ -7,6 +7,9 @@ from rest_framework.views import APIView
 from main.serializers import UserSerializer
 from rest_framework.response import Response
 
+def index(request):
+    return render(request, 'index.html')
+
 def profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:
@@ -27,9 +30,7 @@ def edit_profile(request, username):
         form = UpdateProfileForm(instance=request.user.profile)
     return render(request, 'editprofile.html', {'form': form})
 
-@login_required(login_url='login')
-def index(request):
-    return render(request, 'index.html')
+
 
 def make_booking(request):
     current_user = request.user

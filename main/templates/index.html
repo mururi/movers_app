@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movers App.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="index.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/95dc93da07.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+
+<body>
+    <div id="header-hero-container">
+        <header>
+            <div class="flex container">
+                <a id="logo" href="#">Movers App.</a>
+                <nav>
+                    <button id="nav-toggle" class="hamburger-menu">
+                        <span class="strip"></span>
+                        <span class="strip"></span>
+                        <span class="strip"></span>
+                    </button>
+
+                    <ul id="nav-menu">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="" target="_blank">About us</a></li>
+                        <li><a href="#">Movers</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li id="close-flyout"><span class="fas fa-times"></span></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <section id="hero">
+            <div class="fade"></div>
+            <div class="hero-text">
+                <h1>Change is ineveitable but tasking.Finf your relaible change partner</h1>
+                <p>In one roof,get the solutions to your house moving nightmares</p>
+            </div>
+        </section>
+    </div>
+
+    <section id="the-best">
+        <div class="flex container">
+            <img src="images/download (2).jpeg" alt="Property 1" />
+            <div>
+                <h2>Cut the Hustle</h2>
+              
+                <p>In this current tough econonic situations,living is already a hustle.why then should you worry about how you should move to live better?</p>
+             
+                <button class="rounded">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="flex">
+                <div>
+                    <span class="fas fa-home"></span>
+                    <h4>Find a Mover.</h4>
+                    <p>Find a mover that suits your interest.</p>
+                </div>
+
+                <div>
+                    <span class="fas fa-dollar-sign"></span>
+                    <h4>Negotiate terms.</h4>
+                    <p>Compare prices from different movers.</p>
+                </div>
+
+                <div>
+                    <span class="fas fa-chart-line"></span>
+                    <h4>Conceal the deal.</h4>
+                    <p>Work with your best choice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="agents">
+        <div class="container">
+            <h2>Our top Movers</h2>
+            <p class="large-paragraph">Check our top movers.</p>
+
+            <div class="flex">
+                <div class="card">
+                    <img src="data:image/jpeg;base64,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" alt="Realtor 1" />
+                    <h3>Maridadi Home Logistics</h3>
+                    <p>4 cars| 8 loaders</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmoQL9blvVQ2NmqF8MWWIqQb-N9SV_MuuWDQ&usqp=CAU" alt="Realtor 1" />
+                    <h3>A+ Movers</h3>
+                    <p>4 cars| 8 loaders|</p>
+                    
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5c5fg11KsBGiubgKiV4TcRKASDtPb9Gc8RA&usqp=CAU" alt="Realtor 1" />
+                    <h3>Ufalme Movers</h3>
+                    <p>4 cars| 8 loaders</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGryUX5gbfWrLj4baDvBJ9ynZNQntMf8h3zw&usqp=CAU" alt="Realtor 1" />
+                    <h3>Movers chapchap</h3>
+                    <p>4 cars| 8 loaders</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXNsaZtL0dJRVpencNuFHIxQNS82hosTustg&usqp=CAU" alt="Realtor 1" />
+                    <h3>Songa Mashinani</h3>
+                    <p>4 cars| 8 loaders</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNEvCx3fQ4GG8WTUboH_zKw-ubdcY7Sz6u5w&usqp=CAU" alt="Realtor 1" />
+                    <h3>Upesi Logistics</h3>
+                    <p>4 cars | 8 loaders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="flex">
+                <div>
+                    <div class="fas fa-home"></div>
+                    <div class="services-card-right">
+                        <h3>Search for Mover</h3>
+                        <p>We offer moving services from different movers</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fas fa-dollar-sign"></div>
+                    <div class="services-card-right">
+                        <h3>Loaders</h3>
+                        <p>We have loaders ready to help you pack and move.</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fas fa-chart-line"></div>
+                    <div class="services-card-right">
+                        <h3>Tranks</h3>
+                        <p>We have buses to help move.</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fas fa-building"></div>
+                    <div class="services-card-right">
+                        <h3>Boxes</h3>
+                        <p>Packing materials.</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fas fa-search"></div>
+                    <div class="services-card-right">
+                        <h3>Property Locator</h3>
+                        <p>.</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fas fa-mobile-alt"></div>
+                    <div class="services-card-right">
+                        <h3>Stated Apps</h3>
+                        <p>Many movers.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Clients Are Saying</h2>
+            <div id="testimonials-slider">
+                <div>
+                    <blockquote>
+                        <p>".Hey Movers, This was actually the first time I had hired movers and my experience with Montia Movers exceeded my already high expectations. The efficiency and friendliness of my moving team made the experience extremely easy for me and ensured that I would be a repeat customer"</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="https://onclickwebdesign.com/wp-content/uploads/person_7.jpg" alt="Client 7" />
+                        <p>Steve ochieng</p>
+                    </div>
+                </div>
+
+                <div>
+                    <blockquote>
+                        <p>"Dear movers app
+
+                            Just wanted to let you know that Dwayne and the crew here did a fantastic job with our ton of stuff both yesterday and today. They worked well as a team and made our move smooth and easy. We've moved a lot, and this one was the best mover experience we have had so far.
+                            
+                            Now we just have to unpack..."</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="https://onclickwebdesign.com/wp-content/uploads/person_5.jpg" alt="Client 7" />
+                        <p>Loeen Kamau</p>
+                    </div>
+                </div>
+
+                <div>
+                    <blockquote>
+                        <p>"Thanks Avi. I have moved many times in my life. It is always an experience that I dread. I wanted to personally thank you for your efficiency and care for our stuff. I have never experienced such a simple and quick move. Your guys were great and it was actually kind of fun. If I ever move again, you['re] my guy."</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        
+                        <p>James Maina</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="flex container">
+            <div class="footer-about">
+                <h5>About Stated</h5>
+                <p>Change is ineveitable but tasking.Finding your reliable chnage partner.</p>
+            </div>
+
+            <div class="footer-quick-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-subscribe">
+                <h5>Subscribe to our Newsletter</h5>
+                <div id="subscribe-container">
+                    <input type="text" placeholder="Enter Email" />
+                    <button class="right-rounded">Send</button>
+                </div>
+
+                <h5 class="follow-us">Follow Us</h5>
+                <ul>
+                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <small>
+            Copyright &copy; 2022 All rights reserved |  <span class="fa fa-heart"></span> for <a href="https://colorlib.com">Movers app</a>
+        </small>
+    </footer>
+
+    <script>
+        $(function () {
+            let headerElem = $('header');
+            let logo = $('#logo');
+            let navMenu = $('#nav-menu');
+            let navToggle = $('#nav-toggle');
+
+           $('#properties-slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                prevArrow: '<a href="#" class="slick-arrow slick-prev">previous</a>',
+                nextArrow: '<a href="#" class="slick-arrow slick-next">next</a>',
+                responsive: [
+                    {
+                        breakpoint: 1100,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        breakpoint: 530,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    }
+                ]
+           });
+
+           $('#testimonials-slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<a href="#" class="slick-arrow slick-prev"><</a>',
+                nextArrow: '<a href="#" class="slick-arrow slick-next">></a>'
+           });
+
+           navToggle.on('click', () => {
+               navMenu.css('right', '0');
+           });
+
+           $('#close-flyout').on('click', () => {
+                navMenu.css('right', '-100%');
+           });
+
+           $(document).on('click', (e) => {
+               let target = $(e.target);
+               if (!(target.closest('#nav-toggle').length > 0 || target.closest('#nav-menu').length > 0)) {
+                   navMenu.css('right', '-100%');
+               }
+           });
+
+           $(document).scroll(() => {
+               let scrollTop = $(document).scrollTop();
+
+               if (scrollTop > 0) {
+                   navMenu.addClass('is-sticky');
+                   logo.css('color', '#000');
+                   headerElem.css('background', '#fff');
+                   navToggle.css('border-color', '#000');
+                   navToggle.find('.strip').css('background-color', '#000');
+               } else {
+                   navMenu.removeClass('is-sticky');
+                   logo.css('color', '#fff');
+                   headerElem.css('background', 'transparent');
+                   navToggle.css('bordre-color', '#fff');
+                   navToggle.find('.strip').css('background-color', '#fff');
+               }
+
+               headerElem.css(scrollTop >= 200 ? {'padding': '0.5rem', 'box-shadow': '0 -4px 10px 1px #999'} : {'padding': '1rem 0', 'box-shadow': 'none' });
+           });
+
+           $(document).trigger('scroll');
+        });
+    </script>
+</body>
+</html>

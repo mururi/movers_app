@@ -5,11 +5,6 @@ from django.shortcuts import render, redirect
 from .forms import UpdateProfileForm
 
 # Create your views here.
-@login_required(login_url='login')
-def index(request):
-    return render(request, 'index.html')
-
-
 
 def profile(request, username):
     return render(request, 'profile.html')

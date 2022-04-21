@@ -14,6 +14,8 @@ class User(AbstractUser):
     is_customer = models.BooleanField(default=False)
     is_mover = models.BooleanField(default=False)
 
+    REQUIRED = []
+
     def __str__(self):
         return f'{self.username}User'
 

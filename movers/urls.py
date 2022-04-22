@@ -26,7 +26,6 @@ urlpatterns = [
     # path('accounts/signup/customer/', customers.CustomerSignUpView.as_view(), name='customer'),
     # path('accounts/signup/mover/', movers.MoverSignUpView.as_view(), name='mover'),
     path('', include('main.urls')),
-    path('api/', include('main.urls'))
 ]
 
 if settings.DEBUG:

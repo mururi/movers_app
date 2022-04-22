@@ -1,0 +1,22 @@
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-sm btn-info">Login</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+{% endblock %}

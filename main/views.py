@@ -79,6 +79,7 @@ class RegisterView(APIView):
         Util.send_email(data)
 
         return Response(user_data)
+        
 
 # Creating Email verification class
 class VerifyEmailView(APIView):

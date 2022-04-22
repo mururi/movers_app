@@ -29,12 +29,12 @@
                     </button>
 
                     <ul id="nav-menu">
-                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="{% url 'index' %}" class="active">Home</a></li>
                         <li><a href="" target="_blank">About us</a></li>
                         <li><a href="#">Movers</a></li>
                         <li><a href="#">Contact us</a></li>
                         <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'register' %}">Sign Up</a></li>
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
                         <li id="close-flyout"><span class="fas fa-times"></span></li>
                     </ul>
                 </nav>

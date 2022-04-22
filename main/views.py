@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.urls import reverse
+from .forms import SignupForm
+from django.contrib.auth import login, authenticate
 
 from main import serializers
 from .forms import BookingForm, UpdateProfileForm
@@ -17,6 +19,7 @@ from .models import User
 from .utils import Util
 import jwt, datetime
 from django.contrib.sites.shortcuts import get_current_site
+from rest_framework.renderers import TemplateHTMLRenderer
 
 
 def index(request):
@@ -57,8 +60,26 @@ def make_booking(request):
         form = BookingForm()
     return render(request, 'booking.html', {"form": form})
 
+    # The Registration of a user
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignupForm()
+    return render(request, 'registration/signup.html', {'form': form})
+
 # Create a Registration view
 class RegisterView(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'signup.html'
+
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -78,8 +99,7 @@ class RegisterView(APIView):
         data={'email_body': email_body, 'to_email': user.email, 'email_subject': 'Verify your email'}
         Util.send_email(data)
 
-        return Response(user_data)
-        
+        return Response({'signup':user_data})
 
 # Creating Email verification class
 class VerifyEmailView(APIView):

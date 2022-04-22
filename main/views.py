@@ -5,17 +5,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.urls import reverse
-from .forms import SignupForm
+from .forms import SignupForm, BookingForm, UpdateProfileForm
 from django.contrib.auth import login, authenticate
 
 from main import serializers
-from .forms import BookingForm, UpdateProfileForm
+
 from rest_framework.views import APIView
 from main.serializers import UserSerializer
 from rest_framework.response import Response
+
+from .models import *
+
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import User
+
 from .utils import Util
 import jwt, datetime
 from django.contrib.sites.shortcuts import get_current_site
@@ -153,6 +156,13 @@ class UserView(APIView):
         user = User.objects.filter(id=payload['id']). first()
         serializer = UserSerializer(user)
         return Response(serializer.data)
+
+
+@login_required(login_url='/accounts/login/')
+def mover(request):
+    bookings=Booking.objects.all()
+    return render(request, 'movers.html', {'bookings': bookings})
+
 
 # Logout View
 class LogoutView(APIView):
